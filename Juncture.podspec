@@ -1,36 +1,27 @@
-#
-# Be sure to run `pod lib lint Juncture.podspec' to ensure this is a
-# valid spec and remove all comments before submitting the spec.
-#
-# Any lines starting with a # are optional, but encouraged
-#
-# To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html
-#
-
 Pod::Spec.new do |s|
   s.name             = "Juncture"
   s.version          = "0.1.0"
-  s.summary          = "A short description of Juncture."
+  s.summary          = "Juncture: A place where things (Storyboards) join"
   s.description      = <<-DESC
-                       An optional longer description of Juncture
-
-                       * Markdown format.
-                       * Don't worry about the indent, we strip it!
+                       Juncture is a set of category and classes to make easier the navigation
+                       between several storyboards and the pass of data between view controllers
+                       in the storyboards.
+                       
                        DESC
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/Juncture"
+  s.homepage         = "https://github.com/nextorlg/juncture"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
-  s.author           = { "Nestor Lafon-Gracia" => "nlafongracia@groupon.com" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/Juncture.git", :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.author           = { "Nestor Lafon-Gracia" => "nestor.lafon@gmail.com" }
+  s.source           = { :git => "https://github.com/nextorlg/juncture.git", :tag => s.version.to_s }
+  s.social_media_url = 'https://twitter.com/nestorlafon'
 
-  s.platform     = :ios, '7.0'
+  s.platform     = :ios, '8.0'
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes'
-  s.resource_bundles = {
-    'Juncture' => ['Pod/Assets/*.png']
-  }
+  #s.resource_bundles = {
+  #  'Juncture' => ['Pod/Assets/*.png']
+  #}
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'

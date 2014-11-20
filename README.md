@@ -1,6 +1,6 @@
 # Juncture
 
-[![CI Status](http://img.shields.io/travis/Nestor Lafon-Gracia/Juncture.svg?style=flat)](https://travis-ci.org/Nestor Lafon-Gracia/Juncture)
+[![CI Status](http://img.shields.io/travis/nextorlg/Juncture.svg?style=flat)](https://travis-ci.org/nextorlg/Juncture)
 [![Version](https://img.shields.io/cocoapods/v/Juncture.svg?style=flat)](http://cocoadocs.org/docsets/Juncture)
 [![License](https://img.shields.io/cocoapods/l/Juncture.svg?style=flat)](http://cocoadocs.org/docsets/Juncture)
 [![Platform](https://img.shields.io/cocoapods/p/Juncture.svg?style=flat)](http://cocoadocs.org/docsets/Juncture)
@@ -20,7 +20,7 @@ it, simply add the following line to your Podfile:
 
 ## Author
 
-Nestor Lafon-Gracia, nlafongracia@groupon.com
+Nestor Lafon-Gracia, nestor.lafon@gmail.com
 
 ## License
 
