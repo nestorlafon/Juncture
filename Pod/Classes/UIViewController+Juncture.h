@@ -8,10 +8,23 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void (^junctureBlock)(UIViewController *viewController, NSError *error);
+typedef void (^JunctureBlock)(UIViewController *viewController, NSError *error);
 
 @interface UIViewController (Juncture)
-- (BOOL)pushViewControllerWithIdentifier:(NSString *)identifier inStoryBoard:(NSString *)storyboardId onCompletion:(junctureBlock)completionBlock;
-- (BOOL)presentViewControllerWithIdentifier:(NSString *)identifier inStoryBoard:(NSString *)storyboardId onCompletion:(junctureBlock)completionBlock;
+
+- (BOOL)pushViewControllerWithIdentifier:(NSString *)identifier
+                            inStoryBoard:(NSString *)storyboardId
+                            onCompletion:(JunctureBlock)completionBlock;
+
+- (BOOL)presentViewControllerWithIdentifier:(NSString *)identifier
+                               inStoryBoard:(NSString *)storyboardId
+                               onCompletion:(JunctureBlock)completionBlock;
+
+- (BOOL)showViewControllerWithIdentifier:(NSString *)identifier
+                            inStoryBoard:(NSString *)storyboardId
+                                 pushing:(BOOL)push
+                            onCompletion:(JunctureBlock)completionBlock;
+
 - (UIViewController *)viewControllerWithIdentifier:(NSString *)identifier inStoryBoard:(NSString *)storyboardId;
+
 @end

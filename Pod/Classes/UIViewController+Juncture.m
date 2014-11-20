@@ -10,11 +10,11 @@
 
 @implementation UIViewController (Juncture)
 
-- (BOOL)pushViewControllerWithIdentifier:(NSString *)identifier inStoryBoard:(NSString *)storyboardId onCompletion:(junctureBlock)completionBlock {
+- (BOOL)pushViewControllerWithIdentifier:(NSString *)identifier inStoryBoard:(NSString *)storyboardId onCompletion:(JunctureBlock)completionBlock {
     return [self showViewControllerWithIdentifier:identifier inStoryBoard:storyboardId pushing:YES onCompletion:completionBlock];
 }
 
-- (BOOL)presentViewControllerWithIdentifier:(NSString *)identifier inStoryBoard:(NSString *)storyboardId onCompletion:(junctureBlock)completionBlock {
+- (BOOL)presentViewControllerWithIdentifier:(NSString *)identifier inStoryBoard:(NSString *)storyboardId onCompletion:(JunctureBlock)completionBlock {
     return [self showViewControllerWithIdentifier:identifier inStoryBoard:storyboardId pushing:NO onCompletion:completionBlock];
 }
 
@@ -47,7 +47,7 @@
 - (BOOL)showViewControllerWithIdentifier:(NSString *)identifier
                             inStoryBoard:(NSString *)storyboardId
                                  pushing:(BOOL)push
-                            onCompletion:(junctureBlock)completionBlock {
+                            onCompletion:(JunctureBlock)completionBlock {
     
     UIViewController *otherViewController = [self viewControllerWithIdentifier:identifier inStoryBoard:storyboardId];
     //TODO: return the boolen for the navigation but also and error if boolean is NO. Now only invoking block on success
