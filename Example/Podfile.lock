@@ -1,0 +1,17 @@
+PODS:
+  - Juncture (0.1.0)
+  - Kiwi (2.3.1)
+
+DEPENDENCIES:
+  - Juncture (from `../`)
+  - Kiwi
+
+EXTERNAL SOURCES:
+  Juncture:
+    :path: ../
+
+SPEC CHECKSUMS:
+  Juncture: bb8cde0a60d77cf49d39146fa885a599a9759059
+  Kiwi: 73e1400209055ee9c8ba78c6012b6b642d0fb9f7
+
+COCOAPODS: 0.34.4

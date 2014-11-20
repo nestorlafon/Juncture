@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface NLViewController : UIViewController
-
+@property (nonatomic, strong) NSString *someString;
+@property (nonatomic, strong) NSString *nowDate;
 @end

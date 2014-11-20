@@ -8,5 +8,4 @@ target 'Tests', :exclusive => true do
   pod "Juncture", :path => "../"
 
   pod 'Kiwi'
-  pod 'FBSnapshotTestCase'
 end
