@@ -8,6 +8,8 @@
 
 #import "NLViewController.h"
 #import "UIViewController+Juncture.h"
+#import "NLJunctureController.h"
+#import "NLDataViewController.h"
 
 @interface NLViewController () <UIActionSheetDelegate>
 
@@ -46,6 +48,8 @@
     @"Present standaloneVC",
     @"Push modalVC",
     @"Present modalVC",
+                                  @"segue",
+                                  @"segue2",
     @"Dismiss current",
     nil];
     [actionSheet showInView:self.view];
@@ -74,6 +78,33 @@
             break;
         case 5:
             [self presentViewControllerWithIdentifier:@"modalVC" inStoryBoard:nil onCompletion:nil];
+            break;
+        case 6:
+            [self.junctureController addPreparationForIdentifier:@"seg_custom"
+                                                           block:^(NLDataViewController *viewController, NSError *error) {
+                                                               [viewController view]; //To load the nib
+                                                               viewController.dataLabel.text = @"yeah";
+                                                           }];
+            @try {
+                [self performSegueWithIdentifier:@"seg_custom" sender:self];
+            }
+            @catch (NSException *exception) {
+                NSLog(@"%@", [exception description]);
+            }
+            break;
+        case 7:
+            @try {
+                [self.junctureController addPreparationAndPerformSegueWithIdentifier:@"seg_custom"
+                                                                sourceViewController:self
+                                                                              sender:self
+                                                                               block:^(NLDataViewController *viewController, NSError *error) {
+                                                                                   [viewController view]; //To load the nib
+                                                                                   viewController.dataLabel.text = @"yeah sin perform!";
+                                                                               }];
+            }
+            @catch (NSException *exception) {
+                NSLog(@"%@", [exception description]);
+            }
             break;
         default:
             [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];

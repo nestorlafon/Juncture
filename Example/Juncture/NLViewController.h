@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Nestor Lafon-Gracia. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "NLJunctureViewController.h"
 
-@interface NLViewController : UIViewController
+@interface NLViewController : NLJunctureViewController
 @property (nonatomic, strong) NSString *someString;
 @property (nonatomic, strong) NSString *nowDate;
 @end

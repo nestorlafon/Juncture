@@ -1,20 +1,21 @@
 //
 //  UIViewController+Juncture.m
-//  Pods
+//  Juncture
 //
 //  Created by Nestor Lafon-Gracia on 20/11/14.
 //
 //
 
 #import "UIViewController+Juncture.h"
+#import "NLJunctureError.h"
 
 @implementation UIViewController (Juncture)
 
-- (BOOL)pushViewControllerWithIdentifier:(NSString *)identifier inStoryBoard:(NSString *)storyboardId onCompletion:(JunctureBlock)completionBlock {
+- (BOOL)pushViewControllerWithIdentifier:(NSString *)identifier inStoryBoard:(NSString *)storyboardId onCompletion:(NLJunctureBlock)completionBlock {
     return [self showViewControllerWithIdentifier:identifier inStoryBoard:storyboardId pushing:YES onCompletion:completionBlock];
 }
 
-- (BOOL)presentViewControllerWithIdentifier:(NSString *)identifier inStoryBoard:(NSString *)storyboardId onCompletion:(JunctureBlock)completionBlock {
+- (BOOL)presentViewControllerWithIdentifier:(NSString *)identifier inStoryBoard:(NSString *)storyboardId onCompletion:(NLJunctureBlock)completionBlock {
     return [self showViewControllerWithIdentifier:identifier inStoryBoard:storyboardId pushing:NO onCompletion:completionBlock];
 }
 
@@ -47,10 +48,9 @@
 - (BOOL)showViewControllerWithIdentifier:(NSString *)identifier
                             inStoryBoard:(NSString *)storyboardId
                                  pushing:(BOOL)push
-                            onCompletion:(JunctureBlock)completionBlock {
+                            onCompletion:(NLJunctureBlock)completionBlock {
     
     UIViewController *otherViewController = [self viewControllerWithIdentifier:identifier inStoryBoard:storyboardId];
-    //TODO: return the boolen for the navigation but also and error if boolean is NO. Now only invoking block on success
     
     if (otherViewController && push) {
         if (self.navigationController) {
@@ -63,12 +63,17 @@
                 }
                 else {
                     NSLog(@"Warning: viewcontroller inside navigation viewcontroller not found!");
-                    return NO;
                 }
             }
             
             if (completionBlock) {
-                completionBlock(otherViewController, nil);
+                if (otherViewController) {
+                    completionBlock(otherViewController, nil);
+                }
+                else {
+                    completionBlock(nil, [NLJunctureError validViewControllerNotFoundError]);
+                    return NO;
+                }
             }
             
             [self.navigationController pushViewController:otherViewController animated:YES];
@@ -88,8 +93,10 @@
         [self presentViewController:otherViewController animated:YES completion:nil];
     }
     else {
-        NSLog(@"Warning: viewcontroller not found!");
-        return NO;
+        if (completionBlock) {
+            completionBlock(nil, [NLJunctureError validViewControllerNotFoundError]);
+            return NO;
+        }
     }
     return YES;
 }

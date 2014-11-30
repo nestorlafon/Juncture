@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Fvc-1K-dl6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Fvc-1K-dl6">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
@@ -81,10 +81,10 @@
             </objects>
             <point key="canvasLocation" x="848" y="1084"/>
         </scene>
-        <!--View Controller-->
+        <!--Data View Controller-->
         <scene sceneID="yi5-FZ-m5v">
             <objects>
-                <viewController id="sJy-QM-Ho4" customClass="NLViewController" sceneMemberID="viewController">
+                <viewController id="sJy-QM-Ho4" customClass="NLDataViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iv2-mw-I3g"/>
                         <viewControllerLayoutGuide type="bottom" id="2fp-6c-v48"/>
@@ -92,8 +92,23 @@
                     <view key="view" contentMode="scaleToFill" id="Fhz-He-Hd2">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JXZ-bB-zeF">
+                                <rect key="frame" x="279" y="190" width="42" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="JXZ-bB-zeF" secondAttribute="centerY" constant="100" id="YnL-lE-xvB"/>
+                            <constraint firstAttribute="centerX" secondItem="JXZ-bB-zeF" secondAttribute="centerX" id="l9U-L4-2tv"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="dataLabel" destination="JXZ-bB-zeF" id="rWn-HV-Hzx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Fe-J2-GWM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
