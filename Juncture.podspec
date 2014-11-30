@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "Juncture"
-  s.version          = "0.1.1"
+  s.version          = "0.1.2"
   s.summary          = "Juncture: A place where things (Storyboards) join"
   s.description      = <<-DESC
                        Juncture is a set of category and classes to make easier the navigation
