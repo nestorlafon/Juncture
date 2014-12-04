@@ -42,6 +42,15 @@
         otherViewController = [otherStoryboard instantiateInitialViewController];
     }
     
+    if (!otherViewController) {
+        //xib 'discovery'
+        Class viewControllerClass = NSClassFromString(identifier);
+        if (viewControllerClass &&
+            [viewControllerClass instancesRespondToSelector:@selector(initWithNibName:bundle:)]) {
+            otherViewController = [[viewControllerClass alloc] initWithNibName:nil bundle:nil];;
+        }
+    }
+    
     return otherViewController;
 }
 

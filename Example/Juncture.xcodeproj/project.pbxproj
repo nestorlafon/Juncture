@@ -25,6 +25,8 @@
 		7D33664F1A1DDFCF00D805B9 /* NLShowModalCustom.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D33664E1A1DDFCF00D805B9 /* NLShowModalCustom.storyboard */; };
 		7D3366551A1DFB4700D805B9 /* NLMyCustomSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3366541A1DFB4700D805B9 /* NLMyCustomSegue.m */; };
 		7D557A6F1A2924D700FDC8F9 /* NLDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D557A6E1A2924D700FDC8F9 /* NLDataViewController.m */; };
+		7DD002CF1A309C5600B3EF56 /* NLXibViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DD002CD1A309C5600B3EF56 /* NLXibViewController.m */; };
+		7DD002D01A309C5600B3EF56 /* NLXibViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DD002CE1A309C5600B3EF56 /* NLXibViewController.xib */; };
 		C13D389CE001341BC692CB5C /* libPods-Juncture.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07421420F0B8CE8309A309B1 /* libPods-Juncture.a */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +71,9 @@
 		7D3366541A1DFB4700D805B9 /* NLMyCustomSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NLMyCustomSegue.m; sourceTree = "<group>"; };
 		7D557A6D1A2924D700FDC8F9 /* NLDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NLDataViewController.h; sourceTree = "<group>"; };
 		7D557A6E1A2924D700FDC8F9 /* NLDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NLDataViewController.m; sourceTree = "<group>"; };
+		7DD002CC1A309C5600B3EF56 /* NLXibViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NLXibViewController.h; sourceTree = "<group>"; };
+		7DD002CD1A309C5600B3EF56 /* NLXibViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NLXibViewController.m; sourceTree = "<group>"; };
+		7DD002CE1A309C5600B3EF56 /* NLXibViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NLXibViewController.xib; sourceTree = "<group>"; };
 		C4A90D0338AEBB02BB1728EB /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		D65CBA13EEAB2C38560F159A /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFD52A5A7BCD3C2F5022DB6F /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -158,6 +163,9 @@
 				7D557A6E1A2924D700FDC8F9 /* NLDataViewController.m */,
 				7D3366531A1DFB4700D805B9 /* NLMyCustomSegue.h */,
 				7D3366541A1DFB4700D805B9 /* NLMyCustomSegue.m */,
+				7DD002CC1A309C5600B3EF56 /* NLXibViewController.h */,
+				7DD002CD1A309C5600B3EF56 /* NLXibViewController.m */,
+				7DD002CE1A309C5600B3EF56 /* NLXibViewController.xib */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
 			);
@@ -298,6 +306,7 @@
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 				7D33664D1A1DDF3F00D805B9 /* NLStandaloneViewController.storyboard in Resources */,
+				7DD002D01A309C5600B3EF56 /* NLXibViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,6 +390,7 @@
 			files = (
 				7D3366551A1DFB4700D805B9 /* NLMyCustomSegue.m in Sources */,
 				7D557A6F1A2924D700FDC8F9 /* NLDataViewController.m in Sources */,
+				7DD002CF1A309C5600B3EF56 /* NLXibViewController.m in Sources */,
 				6003F59E195388D20070C39A /* NLAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* NLViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,

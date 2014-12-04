@@ -22,11 +22,20 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     UIButton *actionButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    actionButton.translatesAutoresizingMaskIntoConstraints = NO;
     actionButton.frame = CGRectMake(0, 0, 100, 100);
     [actionButton setTitle:@"Action" forState:UIControlStateNormal];
     [actionButton addTarget:self action:@selector(actionButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:actionButton];
-    actionButton.center = self.view.center;
+    
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[superview]-(<=1)-[actionButton]"
+                                                                      options:NSLayoutFormatAlignAllCenterX
+                                                                      metrics:nil
+                                                                        views:@{@"superview":self.view, @"actionButton":actionButton}]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[superview]-(<=1)-[actionButton]"
+                                                                      options:NSLayoutFormatAlignAllCenterY
+                                                                      metrics:nil
+                                                                        views:@{@"superview":self.view, @"actionButton":actionButton}]];
     
     if (self.navigationController && [self.navigationController.viewControllers count] == 1) {
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStylePlain target:self action:@selector(dismissModalViewControllerAnimated)];
@@ -50,6 +59,7 @@
     @"Present modalVC",
                                   @"segue",
                                   @"segue2",
+                                @"xib modal",
     @"Dismiss current",
     nil];
     [actionSheet showInView:self.view];
@@ -106,6 +116,14 @@
                 NSLog(@"%@", [exception description]);
             }
             break;
+        case 8:
+        {
+            [self presentViewControllerWithIdentifier:@"NLXibViewController" inStoryBoard:nil onCompletion:^(NLViewController *viewController, NSError *error) {
+//                viewController.view.frame = self.view.frame;
+                viewController.view.backgroundColor = [UIColor purpleColor];
+            }];
+            break;
+        }
         default:
             [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
             break;
