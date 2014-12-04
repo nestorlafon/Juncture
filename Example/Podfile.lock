@@ -1,5 +1,5 @@
 PODS:
-  - Juncture (0.1.2)
+  - Juncture (0.1.3)
   - Kiwi (2.3.1)
 
 DEPENDENCIES:
@@ -11,7 +11,7 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  Juncture: edd98d7934d2f3cdc402427a542ad27d9badda17
+  Juncture: 5bb2fc51931d1678980a1265ce4b0fd55ed5f83e
   Kiwi: 73e1400209055ee9c8ba78c6012b6b642d0fb9f7
 
 COCOAPODS: 0.34.4
