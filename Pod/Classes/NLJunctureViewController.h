@@ -22,6 +22,9 @@
  */
 @interface NLJunctureViewController : UIViewController
 
+/**
+ *  Juncture controller to manage executing blocks through segues
+ */
 @property (nonatomic, strong) NLJunctureController *junctureController;
 
 @end

@@ -9,6 +9,7 @@
 #import "UIViewController+Juncture.h"
 #import "NLJunctureError.h"
 
+//TODO: Need to expose the animation option for push and the animation and the completion for present
 @implementation UIViewController (Juncture)
 
 - (BOOL)pushViewControllerWithIdentifier:(NSString *)identifier inStoryBoard:(NSString *)storyboardId onCompletion:(NLJunctureBlock)completionBlock {
@@ -24,7 +25,12 @@
     UIStoryboard *otherStoryboard = nil;
     
     if (storyboardId) {
-        otherStoryboard = [UIStoryboard storyboardWithName:storyboardId bundle:nil];
+        @try {
+            otherStoryboard = [UIStoryboard storyboardWithName:storyboardId bundle:nil];
+        }
+        @catch (NSException *exception) {
+            NSLog(@"%@", [exception description]);
+        }
     }
     else {
         otherStoryboard = [self storyboard];
@@ -65,7 +71,7 @@
         if (self.navigationController) {
             if ([otherViewController isKindOfClass:[UINavigationController class]]) {
                 //Trying to push a navigation controller
-                NSLog(@"Warning: trying to push a navigation controller into a navigation stack, using net vc for that");
+                NSLog(@"Warning: trying to push a navigation controller into a navigation stack, using next vc for that");
                 UINavigationController *navigationViewController = (UINavigationController *)otherViewController;
                 if ([[navigationViewController viewControllers] count] > 0) {
                     otherViewController = [[navigationViewController viewControllers] firstObject];
@@ -75,14 +81,14 @@
                 }
             }
             
-            if (completionBlock) {
-                if (otherViewController) {
+            if (otherViewController && completionBlock) {
                     completionBlock(otherViewController, nil);
-                }
-                else {
+            }
+            else {
+                if (completionBlock) {
                     completionBlock(nil, [NLJunctureError validViewControllerNotFoundError]);
-                    return NO;
                 }
+                return NO;
             }
             
             [self.navigationController pushViewController:otherViewController animated:YES];
@@ -90,6 +96,9 @@
         else {
             //Trying to push not in a navigation
             NSLog(@"Warning: we tried to push voucher viewcontroller from redemption not in a navigation stack");
+            if (completionBlock) {
+                completionBlock(nil, [NLJunctureError validNavigationControllerNotFoundError]);
+            }
             return NO;
         }
     }
@@ -104,8 +113,8 @@
     else {
         if (completionBlock) {
             completionBlock(nil, [NLJunctureError validViewControllerNotFoundError]);
-            return NO;
         }
+        return NO;
     }
     return YES;
 }

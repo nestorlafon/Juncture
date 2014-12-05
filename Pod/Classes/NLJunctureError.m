@@ -8,12 +8,7 @@
 
 #import "NLJunctureError.h"
 
-static NSString *const kJunctureErrorDomain = @"kJunctureErrorDomain";
-
-typedef NS_ENUM(NSInteger, NLJunctureErrorCode) {
-    NLJunctureErrorUndefined,
-    NLJunctureErrorValidViewControllerNotFound
-};
+NSString *const kJunctureErrorDomain = @"kJunctureErrorDomain";
 
 @implementation NLJunctureError
 
@@ -23,6 +18,10 @@ typedef NS_ENUM(NSInteger, NLJunctureErrorCode) {
 
 + (NSError *)validViewControllerNotFoundError {
     return [NSError errorWithDomain:kJunctureErrorDomain code:NLJunctureErrorValidViewControllerNotFound userInfo:nil];
+}
+
++ (NSError *)validNavigationControllerNotFoundError {
+    return [NSError errorWithDomain:kJunctureErrorDomain code:NLJunctureErrorNavigationControllerNotFound userInfo:nil];
 }
 
 @end
