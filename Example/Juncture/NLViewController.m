@@ -43,12 +43,6 @@
     
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (IBAction)actionButtonAction:(id)sender {
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Actions" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:
     @"Push navVC",
@@ -57,9 +51,10 @@
     @"Present standaloneVC",
     @"Push modalVC",
     @"Present modalVC",
-                                  @"segue",
-                                  @"segue2",
-                                @"xib modal",
+    @"Use segue for root 2-steps",
+    @"Use segue for root 1-steps",
+    @"Push vc in xib",
+    @"Present vc in xib",
     @"Dismiss current",
     nil];
     [actionSheet showInView:self.view];
@@ -93,7 +88,7 @@
             [self.junctureController addPreparationForIdentifier:@"seg_custom"
                                                            block:^(NLDataViewController *viewController, NSError *error) {
                                                                [viewController view]; //To load the nib
-                                                               viewController.dataLabel.text = @"yeah";
+                                                               viewController.dataLabel.text = @"Data set in block";
                                                            }];
             @try {
                 [self performSegueWithIdentifier:@"seg_custom" sender:self];
@@ -109,7 +104,7 @@
                                                                               sender:self
                                                                                block:^(NLDataViewController *viewController, NSError *error) {
                                                                                    [viewController view]; //To load the nib
-                                                                                   viewController.dataLabel.text = @"yeah sin perform!";
+                                                                                   viewController.dataLabel.text = @"Data set in block and perform at once";
                                                                                }];
             }
             @catch (NSException *exception) {
@@ -118,8 +113,14 @@
             break;
         case 8:
         {
+            [self pushViewControllerWithIdentifier:@"NLXibViewController" inStoryBoard:nil onCompletion:^(NLViewController *viewController, NSError *error) {
+                viewController.view.backgroundColor = [UIColor purpleColor];
+            }];
+            break;
+        }
+        case 9:
+        {
             [self presentViewControllerWithIdentifier:@"NLXibViewController" inStoryBoard:nil onCompletion:^(NLViewController *viewController, NSError *error) {
-//                viewController.view.frame = self.view.frame;
                 viewController.view.backgroundColor = [UIColor purpleColor];
             }];
             break;

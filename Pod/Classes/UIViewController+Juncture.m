@@ -81,8 +81,11 @@
                 }
             }
             
-            if (otherViewController && completionBlock) {
+            if (otherViewController) {
+                if (completionBlock) {
                     completionBlock(otherViewController, nil);
+                }
+                [self.navigationController pushViewController:otherViewController animated:YES];
             }
             else {
                 if (completionBlock) {
@@ -90,8 +93,6 @@
                 }
                 return NO;
             }
-            
-            [self.navigationController pushViewController:otherViewController animated:YES];
         }
         else {
             //Trying to push not in a navigation
@@ -103,11 +104,9 @@
         }
     }
     else if (otherViewController && !push) {
-        
         if (completionBlock) {
             completionBlock(otherViewController, nil);
         }
-        
         [self presentViewController:otherViewController animated:YES completion:nil];
     }
     else {
